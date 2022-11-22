@@ -17,9 +17,9 @@ public class BrandService implements IBrandService {
     }
     @Override
     public Set<Brand> findAll() {
-        Set<Brand> activities = new HashSet<>();
-        brandRepository.findAll().forEach(activities::add);
-        return activities;
+        Set<Brand> brands = new HashSet<>();
+        brandRepository.findAll().forEach(brands::add);
+        return brands;
     }
 
     @Override

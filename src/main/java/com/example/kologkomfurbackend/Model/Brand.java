@@ -2,10 +2,10 @@ package com.example.kologkomfurbackend.Model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 public class Brand {
@@ -13,5 +13,7 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     Long id;
     String name;
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)    // One brand To Many Products
+    private List<Product> productList = new ArrayList<>();
 
 }
