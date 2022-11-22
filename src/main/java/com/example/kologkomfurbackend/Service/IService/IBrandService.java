@@ -1,4 +1,4 @@
-package com.example.kologkomfurbackend.Service;
+package com.example.kologkomfurbackend.Service.IService;
 
 import com.example.kologkomfurbackend.Model.Brand;
 

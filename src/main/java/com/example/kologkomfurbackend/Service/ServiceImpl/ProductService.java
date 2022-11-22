@@ -1,7 +1,8 @@
-package com.example.kologkomfurbackend.Service;
+package com.example.kologkomfurbackend.Service.ServiceImpl;
 
 import com.example.kologkomfurbackend.Model.Product;
 import com.example.kologkomfurbackend.Repository.ProductRepository;
+import com.example.kologkomfurbackend.Service.IService.IProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -9,7 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
 
     private ProductRepository productRepository;
 

@@ -1,9 +1,8 @@
-package com.example.kologkomfurbackend.Service;
+package com.example.kologkomfurbackend.Service.ServiceImpl;
 
 import com.example.kologkomfurbackend.Model.Brand;
-import com.example.kologkomfurbackend.Model.Product;
 import com.example.kologkomfurbackend.Repository.BrandRepository;
-import com.example.kologkomfurbackend.Repository.ProductRepository;
+import com.example.kologkomfurbackend.Service.IService.IBrandService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -11,7 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class BrandService implements IBrandService{
+public class BrandService implements IBrandService {
     private BrandRepository brandRepository;
     public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;

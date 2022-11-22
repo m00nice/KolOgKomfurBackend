@@ -1,7 +1,6 @@
-package com.example.kologkomfurbackend.Service;
+package com.example.kologkomfurbackend.Service.IService;
 
 import com.example.kologkomfurbackend.Model.Product;
-import org.springframework.data.repository.CrudRepository;
 
 public interface IProductService extends CrudService<Product,Long> {
 }

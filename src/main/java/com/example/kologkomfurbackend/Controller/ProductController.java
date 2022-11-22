@@ -1,11 +1,20 @@
 package com.example.kologkomfurbackend.Controller;
 
-import com.example.kologkomfurbackend.Service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.kologkomfurbackend.Model.Brand;
+import com.example.kologkomfurbackend.Model.Product;
+import com.example.kologkomfurbackend.Service.ServiceImpl.BrandService;
+import com.example.kologkomfurbackend.Service.ServiceImpl.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+import java.util.Set;
 
 @RestController
-public class ProductController {
+@RequestMapping("/product")
+public class
+ProductController {
 
     public ProductService productService;
 
@@ -14,4 +23,45 @@ public class ProductController {
     }
 
 
+    @GetMapping
+    public ResponseEntity<Set<Product>> getAllBrands() {
+        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> addProduct(Product newProduct) {
+        return new ResponseEntity<>(productService.save(newProduct), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Set<Product>> deleteBrands(@PathVariable Product product) {
+        productService.delete(product);
+        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Product> editBrands(@PathVariable Product product) {
+        Optional<Product> productTemp = productService.findById(product.getId());
+        if (productTemp.isPresent()) {
+            if (product.getId() == null) {
+                product.setId(product.getId());
+            }
+            if (product.getName() == null) {
+                product.setName(product.getName());
+            }
+            if (product.getSkuName() == null){
+                product.setSkuName(product.getSkuName());
+            }
+            if (product.getPrice() == 0) {
+                product.setPrice(product.getPrice());
+            }
+            if (product.getDescription() == null){
+                product.setDescription(product.getDescription());
+            }
+            productService.save(product);
+            return new ResponseEntity<>(product,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(product, HttpStatus.NOT_FOUND);
+        }
+    }
 }
