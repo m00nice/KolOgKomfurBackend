@@ -25,7 +25,7 @@ ProductController {
 
 
     @GetMapping
-    public ResponseEntity<Set<Product>> getAllBrands() {
+    public ResponseEntity<Set<Product>> getAllProduct() {
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
@@ -35,13 +35,13 @@ ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Set<Product>> deleteBrands(@PathVariable Product product) {
+    public ResponseEntity<Set<Product>> deleteProduct(@PathVariable Product product) {
         productService.delete(product);
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Product> editBrands(@PathVariable Product product) {
+    public ResponseEntity<Product> editProduct(@PathVariable Product product) {
         Optional<Product> productTemp = productService.findById(product.getId());
         if (productTemp.isPresent()) {
             if (product.getId() == null) {
@@ -65,19 +65,19 @@ ProductController {
             return new ResponseEntity<>(product, HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping
+    @GetMapping("/priceAsc")
     public ResponseEntity<List<Product>> getPriceAsc(){
         return new ResponseEntity<>(productService.findAllOrderByPriceAsc(), HttpStatus.OK);
     }
-    @GetMapping
+    @GetMapping("/priceDesc")
     public ResponseEntity<List<Product>> getPriceDesc(){
         return new ResponseEntity<>(productService.findAllOrderByPriceDesc(), HttpStatus.OK);
     }
-    @GetMapping
+    @GetMapping("/nameAsc")
     public ResponseEntity<List<Product>> getNameAsc(){
         return new ResponseEntity<>(productService.findByAlphabeticOrderAsc(), HttpStatus.OK);
     }
-    @GetMapping
+    @GetMapping("/nameDesc")
     public ResponseEntity<List<Product>> getNameDesc(){
         return new ResponseEntity<>(productService.findByAlphabeticOrderDesc(), HttpStatus.OK);
     }
