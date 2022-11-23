@@ -49,8 +49,8 @@ ProductController {
             if (product.getName() == null) {
                 product.setName(product.getName());
             }
-            if (product.getSkuName() == null){
-                product.setSkuName(product.getSkuName());
+            if (product.getSkuId() == null){
+                product.setSkuId(product.getSkuId());
             }
             if (product.getPrice() == 0) {
                 product.setPrice(product.getPrice());

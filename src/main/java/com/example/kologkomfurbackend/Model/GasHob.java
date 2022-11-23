@@ -7,9 +7,10 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "GasHob")
+@Table(name = "gasHob")
 public class GasHob extends Hob{
 
+    private int hobAmount;
     private boolean electricIgnite;
     private boolean adjustableFlame;
     private boolean safetyValve;

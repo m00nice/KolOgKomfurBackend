@@ -5,7 +5,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@MappedSuperclass
+@Data
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Product {
 
     @Id

@@ -36,10 +36,4 @@ public class Oven extends Product{
     private boolean foldGrillHeatElement;
     private String rotisserieSpit;
 
-    @OneToMany
-    private Array coloursOven;
-
-    @OneToMany
-    private Array functionsOven;
-
 }

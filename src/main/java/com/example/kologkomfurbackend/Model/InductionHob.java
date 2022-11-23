@@ -9,10 +9,10 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "InductionHub")
+@Table(name = "inductionHob")
 public class InductionHob extends Hob{
 
-
+    private int hobAmount;
     private double maxPower;
     private String controls;
     private boolean panSensor;
@@ -20,4 +20,5 @@ public class InductionHob extends Hob{
     private boolean residualHeatIndicator;
     private boolean overheatProtec;
     private boolean liquidProtec;
+
 }
