@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -63,5 +64,21 @@ ProductController {
         }else{
             return new ResponseEntity<>(product, HttpStatus.NOT_FOUND);
         }
+    }
+    @GetMapping
+    public ResponseEntity<List<Product>> getPriceAsc(){
+        return new ResponseEntity<>(productService.findAllOrderByPriceAsc(), HttpStatus.OK);
+    }
+    @GetMapping
+    public ResponseEntity<List<Product>> getPriceDesc(){
+        return new ResponseEntity<>(productService.findAllOrderByPriceDesc(), HttpStatus.OK);
+    }
+    @GetMapping
+    public ResponseEntity<List<Product>> getNameAsc(){
+        return new ResponseEntity<>(productService.findByAlphabeticOrderAsc(), HttpStatus.OK);
+    }
+    @GetMapping
+    public ResponseEntity<List<Product>> getNameDesc(){
+        return new ResponseEntity<>(productService.findByAlphabeticOrderDesc(), HttpStatus.OK);
     }
 }
