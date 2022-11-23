@@ -6,6 +6,7 @@ import com.example.kologkomfurbackend.Service.IService.IProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -46,5 +47,20 @@ public class ProductService implements IProductService {
         return productRepository.findById(aLong);
     }
 
-
+    @Override
+    public List<Product> findAllOrderByPriceAsc(){
+        return productRepository.findAllOrderByPriceAsc();
+    }
+    @Override
+    public  List<Product> findAllOrderByPriceDesc(){
+       return productRepository.findAllOrderByPriceDesc();
+    }
+    @Override
+    public  List<Product> findByAlphabeticOrderAsc(){
+        return productRepository.findByAlphabeticOrderAsc();
+    }
+    @Override
+    public   List<Product> findByAlphabeticOrderDesc(){
+        return productRepository.findByAlphabeticOrderDesc();
+    }
 }
