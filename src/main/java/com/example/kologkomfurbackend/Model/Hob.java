@@ -10,9 +10,11 @@ import java.util.List;
 @MappedSuperclass
 public abstract class Hob extends Product{
 
-    private int hobAmount;
-    private String controls;
-    private String hobDescription;
+    private int hobAmount;//mængden af kogeplader/zones
+
+    private String controls;//beskrivelse af kontrolsystem(knapper eller touch)
+
+    private String hobDescription;//yderligere info
 
 
 }

@@ -14,9 +14,9 @@ import java.lang.reflect.Array;
 public class Oven extends Product{
 
 
-    private int maxHeat;
-    private int minHeat;
-    private int volume;
+    private int maxHeat;//maximum temperatur
+    private int minHeat;//minimum temperatur
+    private int volume;//ovns volume
     private String doorGlass;
 
 

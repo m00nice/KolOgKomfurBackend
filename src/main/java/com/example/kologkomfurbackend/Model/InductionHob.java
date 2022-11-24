@@ -13,7 +13,6 @@ import javax.persistence.Table;
 public class InductionHob extends Hob{
 
 
-    private double maxPower;
-    private int zones;
+
 
 }

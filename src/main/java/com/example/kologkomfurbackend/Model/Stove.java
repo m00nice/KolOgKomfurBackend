@@ -10,6 +10,9 @@ import javax.persistence.Table;
 @Table(name = "stove")
 public class Stove extends Product{
 
-    private String bruh;
+    private int maxHeat;//maximum temperatur
+    private int minHeat;//minimum temperatur
+    private int volume;//komfur ovn volume
+    private String doorGlass;
 
 }

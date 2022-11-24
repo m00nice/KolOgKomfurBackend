@@ -16,7 +16,7 @@ public class Function {
     private Long id;
 
     private String name;
-    private String description;
+    private String description;//yderligere info
 
     @ManyToMany
     private Set<Product> product;
