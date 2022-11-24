@@ -14,6 +14,10 @@ import java.util.Set;
 public class BrandController {
     BrandService brandService;
 
+    public BrandController(BrandService brandService) {
+        this.brandService = brandService;
+    }
+
     @GetMapping
     public ResponseEntity<Set<Brand>> getAllBrands() {
         return new ResponseEntity<>(brandService.findAll(), HttpStatus.OK);
