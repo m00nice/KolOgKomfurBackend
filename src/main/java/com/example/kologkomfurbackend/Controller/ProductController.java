@@ -29,7 +29,7 @@ ProductController {
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
-
+    @CrossOrigin
     @PostMapping("/create/fridge")
     public ResponseEntity<Product> addFridge(@RequestBody Fridge newFridge){
             return new ResponseEntity<>(productService.save(newFridge), HttpStatus.OK);
