@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.color.ProfileDataException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -18,16 +20,18 @@ import java.util.Set;
 @RequestMapping("/product")
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
 
-    @Autowired
+    private ProductService productService;
     private BrandService brandService;
 
+    public ProductController(ProductService productService, BrandService brandService) {
+        this.productService = productService;
+        this.brandService = brandService;
+    }
 
     @GetMapping
-    public ResponseEntity<Set<Product>> getAllProduct() {
-        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
+    public ResponseEntity<Set<Product>> getAllProducts() {
+        return new ResponseEntity<>(productService.findAll(),HttpStatus.OK);
     }
 
     @CrossOrigin
@@ -42,13 +46,13 @@ public class ProductController {
     }
 
     @PostMapping("/create/stove")
-    public ResponseEntity<Product> createStove(@RequestParam Long brandId, @RequestBody Stove stove){
-        Product product1 = brandService.findById(brandId).map(brand -> {
+    public ResponseEntity<Product> createStove(@RequestParam Long brandId, @RequestBody Stove stove) {
+        Product product = brandService.findById(brandId).map(brand -> {
             stove.setBrand(brand);
             return productService.save(stove);
-        }).orElseThrow(()->  new ResourceNotFoundException("Brand Id " + brandId + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("Brand Id " + brandId + " not found"));
 
-        return new ResponseEntity<>(product1, HttpStatus.CREATED);
+        return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
 
     @PostMapping("/create/induHob")
