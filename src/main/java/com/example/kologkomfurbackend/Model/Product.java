@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,9 +22,23 @@ public class Product {
     private Double length;
     private Double width;
     //
+    private double weight;
     private String description;
+
+    private String energyClass;//hvilken energiklasse har produktet
+    private int maxEnergyConsumption;//energiforbrug
+
 
     @JsonBackReference
     @ManyToOne //Many Products to One Brand
     private Brand brand;
+
+    @ManyToMany//many product to many functions vice versa
+    @JoinTable(
+            name = "productFunctions",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "function_id")
+    )
+    private Set<Function> functions;
+
 }

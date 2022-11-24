@@ -11,6 +11,8 @@ import java.util.List;
 public abstract class Hob extends Product{
 
     private int hobAmount;
-    private boolean childSafety;
+    private String controls;
+    private String hobDescription;
+
 
 }
