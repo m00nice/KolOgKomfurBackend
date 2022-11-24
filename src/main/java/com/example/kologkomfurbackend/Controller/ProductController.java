@@ -1,11 +1,11 @@
 package com.example.kologkomfurbackend.Controller;
 
-import com.example.kologkomfurbackend.Model.Brand;
-import com.example.kologkomfurbackend.Model.Product;
+import com.example.kologkomfurbackend.Model.*;
 import com.example.kologkomfurbackend.Service.ServiceImpl.BrandService;
 import com.example.kologkomfurbackend.Service.ServiceImpl.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,10 +29,31 @@ ProductController {
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Product> addProduct(Product newProduct) {
-        return new ResponseEntity<>(productService.save(newProduct), HttpStatus.OK);
-    }
+
+    @PostMapping("/create/fridge")
+    public ResponseEntity<Product> addFridge(@RequestBody Fridge newFridge){
+            return new ResponseEntity<>(productService.save(newFridge), HttpStatus.OK);
+        }
+    @PostMapping("/create/oven")
+    public ResponseEntity<Product> addOven(@RequestBody Oven newOven){
+            return new ResponseEntity<>(productService.save(newOven), HttpStatus.OK);
+        }
+    @PostMapping("/create/stove")
+    public ResponseEntity<Product> addStove(@RequestBody Stove newStove){
+            return new ResponseEntity<>(productService.save(newStove), HttpStatus.OK);
+        }
+    @PostMapping("/create/induHob")
+    public ResponseEntity<Product> addInduHob(@RequestBody InductionHob newHob){
+            return new ResponseEntity<>(productService.save(newHob), HttpStatus.OK);
+        }
+    @PostMapping("/create/gasHob")
+    public ResponseEntity<Product> addGasHob(@RequestBody GasHob newHob){
+            return new ResponseEntity<>(productService.save(newHob), HttpStatus.OK);
+        }
+
+
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Set<Product>> deleteProduct(@PathVariable Product product) {

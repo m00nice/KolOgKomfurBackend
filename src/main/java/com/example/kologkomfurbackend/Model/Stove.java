@@ -10,4 +10,6 @@ import javax.persistence.Table;
 @Table(name = "stove")
 public class Stove extends Product{
 
+    private String bruh;
+
 }
