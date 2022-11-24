@@ -18,10 +18,6 @@ public class BrandController {
         this.brandService = brandService;
     }
 
-    public BrandController(BrandService brandService) {
-        this.brandService = brandService;
-    }
-
     @GetMapping
     public ResponseEntity<Set<Brand>> getAllBrands() {
         return new ResponseEntity<>(brandService.findAll(), HttpStatus.OK);
