@@ -12,7 +12,13 @@ import java.util.Set;
 @RestController
 @RequestMapping("/collection")
 public class CollectionController {
+
     CollectionService collectionService;
+
+    public CollectionController(CollectionService collectionService) {
+        this.collectionService = collectionService;
+    }
+
     @GetMapping
     public ResponseEntity<Set<Collection>> getAllCollections(){
         return new ResponseEntity<>(collectionService.findAll(), HttpStatus.OK);

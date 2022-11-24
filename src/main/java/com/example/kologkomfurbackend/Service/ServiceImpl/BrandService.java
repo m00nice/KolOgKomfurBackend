@@ -12,6 +12,7 @@ import java.util.Set;
 @Service
 public class BrandService implements IBrandService {
     private BrandRepository brandRepository;
+
     public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
