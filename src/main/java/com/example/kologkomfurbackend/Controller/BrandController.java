@@ -12,7 +12,11 @@ import java.util.Set;
 @RestController
 @RequestMapping("/brand")
 public class BrandController {
-    BrandService brandService;
+    private BrandService brandService;
+
+    public BrandController(BrandService brandService) {
+        this.brandService = brandService;
+    }
 
     @GetMapping
     public ResponseEntity<Set<Brand>> getAllBrands() {
@@ -20,7 +24,7 @@ public class BrandController {
     }
 
     @PostMapping
-    public ResponseEntity<Brand> addBrand(Brand newBrand) {
+    public ResponseEntity<Brand> addBrand(@RequestBody Brand newBrand) {
         return new ResponseEntity<>(brandService.save(newBrand), HttpStatus.OK);
     }
 

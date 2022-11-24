@@ -18,6 +18,7 @@ public class ProductService implements IProductService {
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
+
     @Override
     public Set<Product> findAll() {
         Set<Product> activities = new HashSet<>();
