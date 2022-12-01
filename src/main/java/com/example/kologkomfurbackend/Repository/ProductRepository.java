@@ -1,8 +1,6 @@
 package com.example.kologkomfurbackend.Repository;
 
-import com.example.kologkomfurbackend.Model.Product;
-import com.example.kologkomfurbackend.Service.IService.CrudService;
-import org.springframework.data.domain.Sort;
+import com.example.kologkomfurbackend.Model.Products.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,6 +1,6 @@
 package com.example.kologkomfurbackend.Service.IService;
 
-import com.example.kologkomfurbackend.Model.Product;
+import com.example.kologkomfurbackend.Model.Products.Product;
 
 import java.util.List;
 

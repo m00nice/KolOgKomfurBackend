@@ -1,6 +1,7 @@
 package com.example.kologkomfurbackend.Model;
 
-import lombok.Data;
+import com.example.kologkomfurbackend.Model.Products.Product;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ public class Brand {
     private String name;
 
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)    // One brand To Many Products
+    @JsonBackReference
     private List<Product> productList = new ArrayList<>();
 
 }

@@ -1,4 +1,4 @@
-package com.example.kologkomfurbackend.Model;
+package com.example.kologkomfurbackend.Model.Products;
 
 import lombok.Data;
 import javax.persistence.Entity;
@@ -12,8 +12,6 @@ public class Fridge extends Product{
     private int doorAmount;//mængden af døre
 
     private int drawerAmount;//mængden af skuffer
-
-    private int tempAmount;//mængden af døre
 
     private int minTemp;//minimum temperatur
 

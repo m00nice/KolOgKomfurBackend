@@ -1,26 +1,18 @@
-package com.example.kologkomfurbackend.Model;
+package com.example.kologkomfurbackend.Model.Products;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.lang.reflect.Array;
-
 
 @Data
 @Entity
-@Table(name = "oven")
-public class Oven extends Product{
-
+@Table(name = "stove")
+public class Stove extends Product{
 
     private int maxHeat;//maximum temperatur
     private int minHeat;//minimum temperatur
-    private int volume;//ovns volume
+    private int volume;//komfur ovn volume
     private String doorGlass;
-
-
-
-
 
 }

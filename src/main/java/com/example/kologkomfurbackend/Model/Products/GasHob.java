@@ -1,4 +1,4 @@
-package com.example.kologkomfurbackend.Model;
+package com.example.kologkomfurbackend.Model.Products;
 
 import lombok.Data;
 

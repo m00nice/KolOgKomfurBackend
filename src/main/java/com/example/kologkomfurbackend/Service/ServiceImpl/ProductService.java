@@ -1,6 +1,6 @@
 package com.example.kologkomfurbackend.Service.ServiceImpl;
 
-import com.example.kologkomfurbackend.Model.Product;
+import com.example.kologkomfurbackend.Model.Products.Product;
 import com.example.kologkomfurbackend.Repository.ProductRepository;
 import com.example.kologkomfurbackend.Service.IService.IProductService;
 import org.springframework.stereotype.Service;
@@ -21,9 +21,9 @@ public class ProductService implements IProductService {
 
     @Override
     public Set<Product> findAll() {
-        Set<Product> activities = new HashSet<>();
-        productRepository.findAll().forEach(activities::add);
-        return activities;
+        Set<Product> products = new HashSet<>();
+        productRepository.findAll().forEach(products::add);
+        return products;
     }
 
     @Override

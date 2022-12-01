@@ -1,6 +1,8 @@
 package com.example.kologkomfurbackend.Model;
 
 
+import com.example.kologkomfurbackend.Model.Products.Product;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +21,7 @@ public class Function {
     private String description;//yderligere info
 
     @ManyToMany
+    @JsonBackReference
     private Set<Product> product;
 
 }
