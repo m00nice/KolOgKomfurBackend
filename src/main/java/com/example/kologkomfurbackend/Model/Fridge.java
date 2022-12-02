@@ -1,10 +1,14 @@
 package com.example.kologkomfurbackend.Model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "fridge")
 public class Fridge extends Product{

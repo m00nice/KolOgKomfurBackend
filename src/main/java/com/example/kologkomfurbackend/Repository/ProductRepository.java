@@ -20,4 +20,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     @Query("From Product ORDER BY name DESC")
     List<Product> findByAlphabeticOrderDesc();
+
+    List<Product> findAllBySkuId(String sku);
+
 }
