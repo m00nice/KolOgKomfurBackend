@@ -24,6 +24,6 @@ public class Brand {
 
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)    // One brand To Many Products
     @JsonBackReference
-    private List<Product> productList = new ArrayList<>();
+    private List<Product> productList;
 
 }

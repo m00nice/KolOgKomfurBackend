@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,8 +21,11 @@ public class Function {
     private String name;
     private String description;//yderligere info
 
-    @ManyToMany
+    @ManyToMany(targetEntity = Product.class,fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
     @JsonBackReference
-    private Set<Product> product;
+    private List<Product> product;
 
 }

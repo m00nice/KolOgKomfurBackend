@@ -8,12 +8,16 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "product")
@@ -47,23 +51,29 @@ public class Product {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER)//many product to many functions vice versa
+    @ManyToMany(targetEntity = Function.class,fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })//many product to many functions vice versa
     @JoinTable(
             name = "productFunctions",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "function_id")
     )
     @JsonManagedReference
-    private Set<Function> functions;
+    private List<Function> functions;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)//many product to many colours vice versa
+    @ManyToMany(targetEntity = Colour.class,fetch = FetchType.LAZY, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })//many product to many colours vice versa
     @JoinTable(
             name = "productColour",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "colour_id")
     )
     @JsonManagedReference
-    private Set<Colour> colours;
+    private List<Colour> colours;
 
 }
