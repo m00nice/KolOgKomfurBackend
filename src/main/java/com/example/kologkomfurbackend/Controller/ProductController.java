@@ -80,6 +80,12 @@ public class ProductController {
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/sku")
+    public ResponseEntity<List<Product>> getSku(@RequestParam String sku){
+      return new ResponseEntity<>(productService.findAllBySkuId(sku), HttpStatus.OK);
+
+    }
+
     @PatchMapping("/{id}")
     public ResponseEntity<Product> editProduct(@PathVariable Product product) {
         Optional<Product> productTemp = productService.findById(product.getId());
@@ -105,6 +111,7 @@ public class ProductController {
             return new ResponseEntity<>(product, HttpStatus.NOT_FOUND);
         }
     }
+
 
     @GetMapping("/priceAsc")
     public ResponseEntity<List<Product>> getPriceAsc() {

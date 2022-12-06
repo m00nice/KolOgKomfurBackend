@@ -64,4 +64,9 @@ public class ProductService implements IProductService {
     public   List<Product> findByAlphabeticOrderDesc(){
         return productRepository.findByAlphabeticOrderDesc();
     }
+
+    @Override
+    public List<Product> findAllBySkuId(String sku) {
+        return productRepository.findAllBySkuId(sku);
+    }
 }

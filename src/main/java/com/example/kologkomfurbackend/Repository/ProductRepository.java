@@ -30,4 +30,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
 
 
+
+    List<Product> findAllBySkuId(String sku);
+
 }
