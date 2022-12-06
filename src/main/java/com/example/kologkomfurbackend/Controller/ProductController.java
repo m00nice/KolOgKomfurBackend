@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.FilterChain;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -28,6 +29,18 @@ public class ProductController {
     public ResponseEntity<List<Product>> getProducts() {
         return new ResponseEntity<>(productService.findByAlphabeticOrderAsc(), HttpStatus.OK);
     }
+//    @GetMapping("/{filter}")
+//    public ResponseEntity<List<Product>> getProductsFilted(FilterChain) {
+//
+//        List products = productService.findByAlphabeticOrderAsc();
+//
+//        if(true){
+//
+//        }
+//
+//        return new ResponseEntity<>(products, HttpStatus.OK);
+//    }
+
 
     @CrossOrigin
     @PostMapping("/create/fridge")

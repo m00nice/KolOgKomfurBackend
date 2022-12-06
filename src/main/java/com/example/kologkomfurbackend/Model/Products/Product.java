@@ -29,6 +29,7 @@ public class Product {
     private String name;
     private String skuId;
     private Double price;
+    private String productHardware;
     //evt lav composition
     private Double height;
     private Double length;

@@ -18,4 +18,16 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     @Query("From Product ORDER BY name DESC")
     List<Product> findByAlphabeticOrderDesc();
+
+    @Query("From Product WHERE productHardware = 'something'")
+    List<Product> findProductByProductHardware();
+
+    @Query("From Product WHERE price > 1 AND price < 1")
+    List<Product> findProductByPriceRange();
+
+    @Query("From Product WHERE brand = 'something'")
+    List<Product> findProductByBrand();
+
+
+
 }
