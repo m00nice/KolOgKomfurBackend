@@ -1,20 +1,13 @@
 package com.example.kologkomfurbackend.Model.Products;
 
 import com.example.kologkomfurbackend.Model.Brand;
-import com.example.kologkomfurbackend.Model.Colour;
 import com.example.kologkomfurbackend.Model.Function;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -43,7 +36,9 @@ public class Product {
 
     private String imgURL;
 
+    private String colour;
 
+    private String fittings;//beslag
 
 
     @ManyToOne//Many Products to One Brand
@@ -64,17 +59,5 @@ public class Product {
     @JsonManagedReference
     private List<Function> functions;
 
-
-    @ManyToMany(targetEntity = Colour.class,fetch = FetchType.LAZY, cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })//many product to many colours vice versa
-    @JoinTable(
-            name = "productColour",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "colour_id")
-    )
-    @JsonManagedReference
-    private List<Colour> colours;
 
 }
