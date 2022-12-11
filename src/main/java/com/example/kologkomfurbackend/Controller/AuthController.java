@@ -22,6 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,8 +47,8 @@ public class AuthController {
 
     @Autowired
     JwtUtils jwtUtils;
-
-    @PostMapping("/signin")
+    @PermitAll
+    @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
@@ -82,9 +83,9 @@ public class AuthController {
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
 
-        // Create new user's account
-        User user = new User(signUpRequest.getUsername(), signUpRequest.getPassword(), signUpRequest.getFirstName(), signUpRequest.getLastName(),signUpRequest.getEmail(), signUpRequest.getIlveDiscount());
-
+         //Create new user's account
+        User user = new User(signUpRequest.getUsername(),
+                encoder.encode(signUpRequest.getPassword()),signUpRequest.getEmail(), signUpRequest.getFirstName(), signUpRequest.getLastName(), signUpRequest.getIlveDiscount());
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 
