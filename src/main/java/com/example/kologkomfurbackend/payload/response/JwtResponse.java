@@ -12,7 +12,7 @@ public class JwtResponse {
     private String firstName;
     private String lastName;
     private int ilveDiscount;
-
+    //kom med
     public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles, String firstName, String lastName, int ilveDiscount) {
         this.token = accessToken;
         this.id = id;

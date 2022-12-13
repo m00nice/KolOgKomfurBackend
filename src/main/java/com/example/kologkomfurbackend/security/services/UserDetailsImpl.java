@@ -27,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
-
+//kom med
     public UserDetailsImpl(Long id, String username, String email, String password, String firstName, String lastName,
                            int ilveDiscount,
                            Collection<? extends GrantedAuthority> authorities) {

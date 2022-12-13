@@ -41,12 +41,13 @@ public class AuthController {
 
     @Autowired
     RoleRepository roleRepository;
-
+    //kom med
     @Autowired
     PasswordEncoder encoder;
 
     @Autowired
     JwtUtils jwtUtils;
+    @CrossOrigin
     @PermitAll
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {

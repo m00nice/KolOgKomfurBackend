@@ -11,7 +11,7 @@ import java.util.Set;
 @Setter
 @Data
 @Entity
-
+//kom med
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
