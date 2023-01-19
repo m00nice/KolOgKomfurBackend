@@ -1,10 +1,13 @@
 package com.example.kologkomfurbackend.Controller;
 
 import com.example.kologkomfurbackend.Model.Brand;
+import com.example.kologkomfurbackend.Model.Products.Product;
 import com.example.kologkomfurbackend.Service.ServiceImpl.BrandService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -22,7 +25,7 @@ public class BrandController {
         return new ResponseEntity<>(brandService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Brand> addBrand(@RequestBody Brand newBrand) {
         return new ResponseEntity<>(brandService.save(newBrand), HttpStatus.OK);
     }
@@ -49,4 +52,9 @@ public class BrandController {
             return new ResponseEntity<>(brand, HttpStatus.NOT_FOUND);
         }
     }
-}
+
+    @GetMapping("/products")
+    public ResponseEntity<Set<Brand>> getProductsByBrand(){
+        return new ResponseEntity(brandService.findProductsByBrand(),HttpStatus.OK);
+    }
+ }

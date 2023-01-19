@@ -44,7 +44,7 @@ public class ProductController {
 
     @CrossOrigin
     @PostMapping("/create/fridge")
-    public ResponseEntity<Product> addFridge(@RequestParam Long brandId,@RequestBody Fridge newFridge) {
+    public ResponseEntity<Product> addFridge(@RequestParam Long brandId, @RequestBody Fridge newFridge) {
         return new ResponseEntity<>(productService.save(newFridge), HttpStatus.OK);
     }
 
@@ -132,4 +132,11 @@ public class ProductController {
     public ResponseEntity<List<Product>> getNameDesc() {
         return new ResponseEntity<>(productService.findByAlphabeticOrderDesc(), HttpStatus.OK);
     }
+
+    @GetMapping("/brandId")
+    public ResponseEntity<List<Product>> brandId(@RequestParam Long id) {
+        return new ResponseEntity<>(productService.findAllByBrand_Id(id), HttpStatus.OK);
+    }
+
 }
+

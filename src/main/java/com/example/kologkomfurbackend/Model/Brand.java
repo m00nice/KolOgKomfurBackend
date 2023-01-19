@@ -19,11 +19,11 @@ import java.util.List;
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @Column(name = "brand_id")
     private Long id;
     private String name;
 
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)    // One brand To Many Products
-    @JsonBackReference
-    private List<Product> productList;
+    private List<Product> productList = new ArrayList<>();
 
 }

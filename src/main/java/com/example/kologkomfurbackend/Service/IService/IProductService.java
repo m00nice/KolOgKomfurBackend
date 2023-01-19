@@ -12,4 +12,7 @@ public interface IProductService extends CrudService<Product,Long> {
     List<Product> findByAlphabeticOrderDesc();
 
     List<Product> findAllBySkuId(String sku);
+
+    List<Product> findAllByBrand_Id(Long id);
+
 }

@@ -25,12 +25,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("From Product WHERE price > 1 AND price < 1")
     List<Product> findProductByPriceRange();
 
-    @Query("From Product WHERE brand = 'something'")
-    List<Product> findProductByBrand();
-
-
-
 
     List<Product> findAllBySkuId(String sku);
+
+    List<Product> findAllByBrand_Id(Long id);
 
 }

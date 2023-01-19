@@ -2,6 +2,7 @@ package com.example.kologkomfurbackend.Model.Products;
 
 import com.example.kologkomfurbackend.Model.Brand;
 import com.example.kologkomfurbackend.Model.Function;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,8 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
+
+
     private Long id;
     private String name;
     private String skuId;
@@ -28,11 +31,11 @@ public class Product {
     private Double length;
     private Double width;
     //
-    private double weight;
+
     private String description;
 
     private String energyClass;//hvilken energiklasse har produktet
-    private int maxEnergyConsumption;//energiforbrug
+
 
     private String imgURL;
 
@@ -41,8 +44,10 @@ public class Product {
     private String fittings;//beslag
 
 
-    @ManyToOne//Many Products to One Brand
-    @JsonManagedReference
+    @ManyToOne (fetch = FetchType.LAZY, optional = false)//Many Products to One Brand
+    //@JsonManagedReference
+    @JsonBackReference
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
 

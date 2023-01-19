@@ -69,4 +69,11 @@ public class ProductService implements IProductService {
     public List<Product> findAllBySkuId(String sku) {
         return productRepository.findAllBySkuId(sku);
     }
+
+    @Override
+    public List<Product> findAllByBrand_Id(Long id) {
+        return productRepository.findAllByBrand_Id(id);
+    }
+
+
 }

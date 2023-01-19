@@ -1,17 +1,19 @@
 package com.example.kologkomfurbackend.Service.ServiceImpl;
 
 import com.example.kologkomfurbackend.Model.Brand;
+import com.example.kologkomfurbackend.Model.Products.Product;
 import com.example.kologkomfurbackend.Repository.BrandRepository;
 import com.example.kologkomfurbackend.Service.IService.IBrandService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class BrandService implements IBrandService {
-    private BrandRepository brandRepository;
+    private final BrandRepository brandRepository;
 
     public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
@@ -45,6 +47,16 @@ public class BrandService implements IBrandService {
         return brandRepository.findById(aLong);
     }
 
+
+    @Override
+    public List<Brand> findAllByName(String name) {
+        return brandRepository.findAllByName(name);
+    }
+
+    @Override
+    public List<Brand> findProductsByBrand() {
+        return brandRepository.findProductsByBrand();
+    }
 
 }
 
